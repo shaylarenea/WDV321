@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-1 AJAX Consume JSON Objects</title>
+    <script>
+        function getStudentData() {
+            let xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    let result = JSON.parse(xmlhttp.responseText);
+                    console.log(result);
+                    document.querySelector("#studentId").innerHTML = "Student ID: " + result.studentID;
+                    document.querySelector("#studentFname").innerHTML = "Student First Name: " + result.studentFname;
+                    document.querySelector("#studentLname").innerHTML = "Student Last Name: " + result.studentLname;
+                    document.querySelector("#studentMajor").innerHTML = "Student Major: " + result.studentMajor;
+                    document.querySelector("#studentCredits").innerHTML = "Student Credits: " + result.studentCredits;
+                    document.querySelector("#studentGPA").innerHTML = "Student GPA: " + result.studentGPA;
+                    document.querySelector("#studentRegDate").innerHTML = "Student Registration Date: " + result.studentRegDate;
+                }
+            }
+            xmlhttp.open("GET", "900006361.js", true);
+            xmlhttp.send();
+        }
+
+        function getStudentData2() {
+            let xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    let result = JSON.parse(xmlhttp.responseText);
+                    console.log(result);
+                    document.querySelector("#studentId").innerHTML = "Student ID: " + result.studentID;
+                    document.querySelector("#studentFname").innerHTML = "Student First Name: " + result.studentFname;
+                    document.querySelector("#studentLname").innerHTML = "Student Last Name: " + result.studentLname;
+                    document.querySelector("#studentMajor").innerHTML = "Student Major: " + result.studentMajor;
+                    document.querySelector("#studentCredits").innerHTML = "Student Credits: " + result.studentCredits;
+                    document.querySelector("#studentGPA").innerHTML = "Student GPA: " + result.studentGPA;
+                    document.querySelector("#studentRegDate").innerHTML = "Student Registration Date: " + result.studentRegDate;
+                }
+            }
+            xmlhttp.open("GET", "900668871.js", true);
+            xmlhttp.send();
+        }
+
+        function getStudentData3() {
+            let xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    let result = JSON.parse(xmlhttp.responseText);
+                    console.log(result);
+                    document.querySelector("#studentId").innerHTML = "Student ID: " + result.studentID;
+                    document.querySelector("#studentFname").innerHTML = "Student First Name: " + result.studentFname;
+                    document.querySelector("#studentLname").innerHTML = "Student Last Name: " + result.studentLname;
+                    document.querySelector("#studentMajor").innerHTML = "Student Major: " + result.studentMajor;
+                    document.querySelector("#studentCredits").innerHTML = "Student Credits: " + result.studentCredits;
+                    document.querySelector("#studentGPA").innerHTML = "Student GPA: " + result.studentGPA;
+                    document.querySelector("#studentRegDate").innerHTML = "Student Registration Date: " + result.studentRegDate;
+                }
+            }
+            xmlhttp.open("GET", "903998004.js", true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+
+    <h1>WDV321 Advanced Javascript</h1>
+
+    <h2>AJAX using javascript</h2>
+
+    <p><button type="button" onclick="getStudentData()">Display Student 1</button></p>
+    <p><button type="button" onclick="getStudentData2()">Display Student 2</button></p>
+    <p><button type="button" onclick="getStudentData3()">Display Student 3</button></p>
+
+    <div>
+        <p id="studentId"></p>
+        <p id="studentFname"></p>
+        <p id="studentLname"></p>
+        <p id="studentMajor"></p>
+        <p id="studentCredits"></p>
+        <p id="studentGPA"></p>
+        <p id="studentRegDate"></p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+       (checked) Use an AJAX call to reach out from our browser, to our server and ask for a  JSON object to be sent to us
+        will asks for 903998004.js
+        (checked)-trigger? button to call for 903998004.js
+        (checked)-function getCourseData()
+          
+
+        (checked)Return a JSON formatted object to our browser
+        (checked)JSON.parse() to covert the JSON object intoa Javascript Object
+            Because we can use Javascript to access the contents of the object
+
+            Use the contents of the Javascript object to?
+            Format a piece(s) of content from the Javascript and display the page/document object
+             (checked) get the student ID value out of the JS object and display it on the page-
+              isnide the <spa></span>(element)
+
+        */
+
+         function getCourseData(){
+            //alert("inside getCourseData()");
+            let xmlhttp = new XMLHttpRequest();
+
+		        xmlhttp.onreadystatechange=function(){
+			    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			    {
+                    //process the return on this line?  
+			    let studentJSONObject = xmlhttp.responseText; //returns the requested JSON object
+                console.log(studentJSONObject);
+                let studentJavaScriptObject = JSON.parse(studentJSONObject);
+                console.log(studentJavaScriptObject);
+                console.log(studentJavaScriptObject.student_id);
+                document.querySelector("#studentIdDisplay").innerHTML = studentJavaScriptObject.student_id
+			    }
+		}
+		
+		        xmlhttp.open("GET","903998004.js",true);
+		
+		        xmlhttp.send();
+         }           
+    </script>
+</head>
+<body>
+    <h1> WDV 321 Advanced Javascript</h1>
+    <h2>AJAX Processing Example</h2>
+    <p>Student ID:<span id="StudentIdDisplay"></span></p>
+    <p>
+            <button onclick="getCourseData()">Get Student: 903998004</button>
+    </p>
+</body>
+</html>
